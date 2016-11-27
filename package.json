@@ -1,0 +1,55 @@
+{
+  "name": "tsplus",
+  "version": "0.1.0",
+  "description": "TypeScript project boilerplate with complete test suite, continuous integration, and coverage for Node.JS",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublish": "tsc",
+    "test": "nyc mocha -r ts-node/register test/**/*.spec.ts",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "compile": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adzil/tsplus.git"
+  },
+  "keywords": [
+    "typescript",
+    "boilerplate",
+    "test",
+    "continuous-integration",
+    "coverage"
+  ],
+  "author": "Fadhli Dzil Ikram",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adzil/tsplus/issues"
+  },
+  "homepage": "https://github.com/adzil/tsplus#readme",
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/chai-as-promised": "0.0.29",
+    "@types/mocha": "^2.2.33",
+    "@types/node": "^6.0.51",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "coveralls": "^2.11.15",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "nyc": "^10.0.0",
+    "ts-node": "^1.7.0",
+    "typescript": "^2.0.10"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
+  }
+}

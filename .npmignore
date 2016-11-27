@@ -1,0 +1,2 @@
+# Suppress distribution folder ignore on npmjs.com
+!dist
