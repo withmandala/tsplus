@@ -58,6 +58,14 @@ npm run compile
 npm start
 ```
 
+### Run Without Compile
+
+If you want to run the project with in-memory compiler, use
+
+```
+npm run project
+```
+
 ## Development Hot Reload
 
 You can instantly reload your project after saving file by simply running
@@ -69,7 +77,7 @@ npm run dev
 This command will do in-memory compilation so if you planning on run the app
 with `npm start` later, please compile it first using `npm run compile`.
 
-Please DO NOT use this command for production. You can use process manager
+Please **DO NOT** use this command for production. You can use process manager
 such as PM2 to manage your production code.
 
 If you running REPL or using stdin on your project, turn off nodemon stdin
