@@ -166,7 +166,7 @@ npm publish
 
 You can write test code in `test/` folder and create new test file with
 `.spec.ts` extension (the .spec is important). Example test file is included
-in `test/index.spec.test` and can be removed later.
+in `test/index.spec.ts` and can be removed later.
 
 Test and code coverage can be initiated by using
 
