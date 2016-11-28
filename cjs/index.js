@@ -12,8 +12,8 @@ if (main.default === undefined) {
   // There is no default exports, fall back to export as-is
   module.exports = main
 } else {
-  // Check if default object is object
-  if (typeof main.default === 'function') {
+  // Check if the default object can be overloaded
+  if (main.default instanceof Object) {
     // Copy all module property to default
     var keys = Object.getOwnPropertyNames(main)
     for (var key of keys) {
@@ -22,6 +22,6 @@ if (main.default === undefined) {
       )
     }
   }
-  // Default object exists, export the default object only
+  // Export default object only
   module.exports = main.default
 }
