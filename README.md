@@ -97,6 +97,36 @@ TypeScript packages will automatically compiled before you publish them with
 npm publish
 ```
 
+## CommonJS Default Exports
+
+The default export of TypeScript will end up with `.default` property inside
+the exported module. If this is not the behavior you want (e.g. project
+that will require'd by plain CommonJS file), you can change `main` property of
+`package.json` to (but please DO NOT change `types` property)
+
+```json
+{
+  "main": "cjs/index.js",
+  "types": "dist/index.d.ts"
+}
+```
+
+So instead requiring module by
+
+```javascript
+const myModule = require('myModule').default
+```
+
+You can just require it by
+
+```javascript
+const myModule = require('myModule')
+```
+
+Please note that the CJS Interop module only works with functions or classes.
+If you do default exports with other object than function, it will only export
+the default object (the other module property will be omitted).
+
 ## Test and Code Coverage
 
 You can write test code in `test/` folder and create new test file with
