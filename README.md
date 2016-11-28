@@ -40,11 +40,46 @@ initialize your own git repository.
 ~/myProject$ git init
 
 # Initialize node modules
-~/myProject$ npm install --only=dev
+~/myProject$ npm install
 ```
 
 Don't forget to change `package.json` information to match your project info
 and fine tune the `tsconfig.json` to match your TypeScript compilation needs.
+
+## Running on production
+
+If you are plan on running the application on production, please set
+`typescript` package to your dependencies so it can compile the source code
+after `npm install` on production machine.
+
+```sh
+# Don't forget the --save option
+npm install --save typescript
+```
+
+And to deploy the code on your production machine
+
+```sh
+# Pull it from git repo or anything
+git pull
+
+# Do npm install on production
+npm install --only=prod
+
+# Compile the code
+npm run compile
+
+# Run the code
+npm start
+
+# Or using process manager, it is up to you
+npm install -g pm2
+pm2 start npm -- start
+```
+
+Don't add `typescript` dependencies if you plan to upload this project to
+NpmJS.com. The `npm publish` will automatically compile your project before
+publishing it.
 
 ## Basic Compile and Run
 
@@ -89,14 +124,6 @@ by adding `nodemon.json` in the root project directory with this configuration
 }
 ```
 
-## Publishing TypeScript Packages
-
-TypeScript packages will automatically compiled before you publish them with
-
-```
-npm publish
-```
-
 ## CommonJS Default Exports
 
 The default export of TypeScript will end up with `.default` property inside
@@ -126,6 +153,14 @@ const myModule = require('myModule')
 Please note that the CJS Interop module only works with functions or classes.
 If you do default exports with other object than function, it will only export
 the default object (the other module property will be omitted).
+
+## Publishing TypeScript Packages
+
+TypeScript packages will automatically compiled before you publish them with
+
+```
+npm publish
+```
 
 ## Test and Code Coverage
 
