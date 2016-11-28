@@ -147,4 +147,6 @@ folder.
 The `.travis.yml` contains default configuration to run proper test on Travis
 and automatically send coverage report to Coveralls. If you don't want the
 coveralls integration, please delete `after_success` configuration in
-`.travis.yml` or your build will failing.
+`.travis.yml` ~~or your build will failing~~. Your build will not failing but
+it will do if the `after_success` process timeouts. So it is better to remove
+them, just in case.
