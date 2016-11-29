@@ -8,6 +8,7 @@ integration, and coverage for Node.JS.
 
 - Full-fledged TypeScript project with dev hot reloading support
 - Suitable for standalone or package projects
+- Interoperability with CommonJS modules
 - Complete test suite with Mocha and Chai with Promise
 - Code coverage embedded in `npm test`
 - Travis-CI and Coveralls support
@@ -128,13 +129,13 @@ by adding `nodemon.json` in the root project directory with this configuration
 
 The default export of TypeScript will end up with `.default` property inside
 the exported module. If this is not the behavior you want (e.g. project
-that will require'd by plain CommonJS file), you can change `main` property of
-`package.json` to (but please DO NOT change `types` property)
+that will require'd by plain CommonJS file), you can change `main` and
+`typings` property of `package.json` to
 
 ```json
 {
   "main": "cjs/index.js",
-  "types": "dist/index.d.ts"
+  "typings": "cjs/index.d.ts"
 }
 ```
 
